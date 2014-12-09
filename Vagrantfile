@@ -2,12 +2,13 @@
 # vi: set ft=ruby :
 
 # The VHOSTs / projects settings
-vhost_name      = "www.project.de"
-vhost_user      = "root"
-vhost_password  = "root"
-mysql_db_name   = "projectde"
-apt_packages    = %w{ screen curl }
-php_packages    = %w{ php5-memcached }
+vhost_name        = "www.project.de"
+vhost_user        = "root"
+vhost_password    = "root"
+mysql_db_name     = "projectde"
+mysql_db_skeleton = ""
+apt_packages      = %w{ screen curl subversion }
+php_packages      = %w{ php5-memcached php5-xdebug }
 
 
 # Vagrantfile API/syntax version
@@ -44,11 +45,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Configuration params
     chef.json = {
       :webdev => {
-        :vhost_name     => vhost_name,
-        :vhost_root     => "/var/www/sites/" + vhost_name,
-        :mysql_db_name  => mysql_db_name,
-        :apt_packages   => apt_packages,
-        :php_packages   => php_packages
+        :vhost_name         => vhost_name,
+        :vhost_root         => "/var/www/sites/" + vhost_name,
+        :mysql_db_name      => mysql_db_name,
+        :mysql_db_skeleton  => mysql_db_skeleton,
+        :apt_packages       => apt_packages,
+        :php_packages       => php_packages
       },
 
       :mysql => {

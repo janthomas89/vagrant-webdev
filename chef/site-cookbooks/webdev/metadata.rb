@@ -6,8 +6,10 @@ version           "0.1.0"
 
 recipe "app", "Cookbook for a common LAMP stack"
 
-depends "apache2"
 depends "apt"
+depends "apache2"
+depends "php"
+depends "phpmyadmin"
 
 %w{ debian ubuntu }.each do |os|
   supports os

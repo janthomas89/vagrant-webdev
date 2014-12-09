@@ -50,4 +50,18 @@
   <% if @params[:directory_index] -%>
   DirectoryIndex <%= [@params[:directory_index]].flatten.join " " %>
   <% end -%>
+
+  # PHP settings
+  php_flag log_errors on 
+  php_flag display_errors on
+  php_flag display_startup_errors on
+  php_value error_reporting 32767
+  php_value error_log <%= node['php']['log_dir'] %>/<%= @params[:name] %>-error.log
+  php_value zend_extension /usr/lib/php5/20100525+lfs/xdebug.so
+  php_value xdebug.remote_enable 1
+  php_value xdebug.remote_port 9000
+  php_value xdebug.remote_connect_back 1
+  php_value xdebug.profiler_enable_trigger 1
+  php_value xdebug.profiler_output_dir <%= @params[:docroot] %>/tmp
+
 </VirtualHost>

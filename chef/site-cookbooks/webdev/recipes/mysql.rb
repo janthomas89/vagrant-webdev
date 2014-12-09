@@ -12,14 +12,14 @@ ruby_block "create_#{node['webdev']['vhost_name']}_db" do
     action :create
 end
 
-# Load default database if database dump file existing and database is empty
-# if File.exist?("#{node['app']['db_dump']}")
-#    ruby_block "seed #{node['app']['name']} database" do
-#        block do
-#            %x[mysql -u root -p#{node['mysql']['server_root_password']} #{node['app']['db_name']} < #{node['app']['db_dump']}]
-#        end
-#        not_if "mysql -u root -p#{node['mysql']['server_root_password']} -e \"SHOW TABLES FROM #{node['app']['db_name']}\" | \
-#            grep 1"
-#        action :create
-#    end
-# end
+# Load database skeleton if skeleton file exists and database is empty
+if File.exist?("#{node['webdev']['mysql_db_skeleton']}")
+   ruby_block "seed #{node['webdev']['vhost_name']} database" do
+       block do
+           %x[mysql -u root -p#{node['mysql']['server_root_password']} #{node['webdev']['mysql_db_name']} < #{node['webdev']['mysql_db_skeleton']}]
+       end
+       not_if "mysql -u root -p#{node['mysql']['server_root_password']} -e \"SHOW TABLES FROM #{node['webdev']['mysql_db_name']}\" | \
+           grep 1"
+       action :create
+   end
+end

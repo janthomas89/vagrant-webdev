@@ -1,7 +1,5 @@
 name "vagrant-webdev-box"
 
-# ToDo: xdebug
-
 run_list(
     "recipe[apt]",
     "recipe[build-essential]",
@@ -21,5 +19,6 @@ run_list(
     "recipe[webdev::apt_packages]",
     "recipe[webdev::vhost]",
     "recipe[webdev::php]",
-    "recipe[webdev::mysql]"
+    "recipe[webdev::mysql]",
+    "recipe[phpmyadmin]"
 )
