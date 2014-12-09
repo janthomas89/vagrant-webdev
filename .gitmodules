@@ -49,9 +49,6 @@
 [submodule "chef/cookbooks/runit"]
 	path = chef/cookbooks/runit
 	url = https://github.com/opscode-cookbooks/runit.git
-[submodule "chef/cookbooks/php"]
-	path = chef/cookbooks/php
-	url = https://github.com/priestjim/chef-php.git
 [submodule "chef/cookbooks/phpmyadmin"]
 	path = chef/cookbooks/phpmyadmin
 	url = https://github.com/priestjim/chef-phpmyadmin.git
