@@ -52,3 +52,6 @@
 [submodule "chef/cookbooks/phpmyadmin"]
 	path = chef/cookbooks/phpmyadmin
 	url = https://github.com/priestjim/chef-phpmyadmin.git
+[submodule "chef/cookbooks/php"]
+	path = chef/cookbooks/php
+	url = https://github.com/priestjim/chef-php.git
