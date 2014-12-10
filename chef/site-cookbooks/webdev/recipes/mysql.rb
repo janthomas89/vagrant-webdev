@@ -28,7 +28,10 @@ end
 bash "enable phpMyAdmin" do
   code <<-EOH
   ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf
-  sed -i '/<Directory \\/usr\\/share\\/phpmyadmin>/a  Allow from all' /etc/apache2/conf-enabled/phpmyadmin.conf 
-  sed -i '/<Directory \\/usr\\/share\\/phpmyadmin>/a  Order allow,deny' /etc/apache2/conf-enabled/phpmyadmin.conf 
+  if ! grep -q "# chefenablepma" "/etc/apache2/conf-enabled/phpmyadmin.conf"; then
+    sed -i '/<Directory \\/usr\\/share\\/phpmyadmin>/a  Allow from all' /etc/apache2/conf-enabled/phpmyadmin.conf 
+    sed -i '/<Directory \\/usr\\/share\\/phpmyadmin>/a  Order allow,deny' /etc/apache2/conf-enabled/phpmyadmin.conf 
+    sed -i '/<Directory \\/usr\\/share\\/phpmyadmin>/a  # chefenablepma' /etc/apache2/conf-enabled/phpmyadmin.conf 
+  fi
   EOH
 end
