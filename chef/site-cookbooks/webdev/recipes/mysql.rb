@@ -23,3 +23,12 @@ if File.exist?("#{node['webdev']['mysql_db_skeleton']}")
        action :create
    end
 end
+
+# Enable phpMyAdmin
+bash "enable phpMyAdmin" do
+  code <<-EOH
+  ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf
+  sed -i '/<Directory \\/usr\\/share\\/phpmyadmin>/a  Allow from all' /etc/apache2/conf-enabled/phpmyadmin.conf 
+  sed -i '/<Directory \\/usr\\/share\\/phpmyadmin>/a  Order allow,deny' /etc/apache2/conf-enabled/phpmyadmin.conf 
+  EOH
+end

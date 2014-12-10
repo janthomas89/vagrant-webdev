@@ -7,7 +7,7 @@ vhost_user        = "root"
 vhost_password    = "root"
 mysql_db_name     = "projectde"
 mysql_db_skeleton = ""
-apt_packages      = %w{ screen curl subversion }
+apt_packages      = %w{ screen curl subversion phpmyadmin }
 php_packages      = %w{ php5-memcached php5-xdebug }
 
 
@@ -58,6 +58,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :server_repl_password   => vhost_password,
         :server_debian_password => vhost_password,
         :allow_remote_root      => true
+      },
+
+      :phpmyadmin => {
+        :home => "/usr/share/phpmyadmin",
+        :user => "pma",
+        :group => "pma",
+        :fpm => false
       }
     }
   end

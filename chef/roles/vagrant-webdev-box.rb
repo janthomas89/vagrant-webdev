@@ -19,6 +19,5 @@ run_list(
     "recipe[webdev::apt_packages]",
     "recipe[webdev::vhost]",
     "recipe[webdev::php]",
-    "recipe[webdev::mysql]",
-    "recipe[phpmyadmin]"
+    "recipe[webdev::mysql]"
 )
