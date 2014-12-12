@@ -4,5 +4,3 @@
 command -v chef-solo >/dev/null 2>&1 || { 
 	curl -L https://www.opscode.com/chef/install.sh | bash
 }
-
-# Bootstrap VHOST structure
