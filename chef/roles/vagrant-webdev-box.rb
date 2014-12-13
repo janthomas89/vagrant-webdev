@@ -6,6 +6,7 @@ run_list(
     "recipe[openssl]",
     "recipe[apache2]",
     "recipe[apache2::mod_php5]",
+    "recipe[apache2::mod_ssl]",
     "recipe[mysql::client]",
     "recipe[mysql::server]",
     "recipe[php]",
