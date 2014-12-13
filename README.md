@@ -4,13 +4,13 @@ vagrant-webdev
 Basic vagrant LAMP stack for my web development.
 
 
-Requirements
+1.) Requirements
 ------------
 * Vagrant <http://www.vagrantup.com>
 * VirtualBox <http://www.virtualbox.com>
 
 
-Usage
+2.) Usage
 ------------
 Clone this repository:
 
@@ -26,7 +26,7 @@ There are two ways to access your project:
 *https://localhost:4443
 
 
-Instlalled Software
+3.) Instlalled Software
 ------------
 The VMs provisioning is done by the chef role "vagrant-webdev-box". The following software is installed:
 * Apache2 (mod_php5, mod_ssl)
@@ -37,7 +37,7 @@ The VMs provisioning is done by the chef role "vagrant-webdev-box". The followin
 * PHPMyAdmin
 
 
-Configuration (Vagrantfile)
+4.) Configuration (Vagrantfile)
 ------------
 * vhost_name: Name of the apache2 VHOST (e.g. www.project.de)
 * vhost_user: The VHOSTs username (used for mysql database)
