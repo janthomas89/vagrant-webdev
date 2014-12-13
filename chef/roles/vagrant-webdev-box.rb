@@ -12,7 +12,6 @@ run_list(
     "recipe[php]",
     "recipe[php::module_mysql]",
     "recipe[php::module_sqlite3]",
-    "recipe[php::module_memcache]",
     "recipe[php::module_gd]",
     "recipe[php::module_fpdf]",
     "recipe[php::module_curl]",
