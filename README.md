@@ -13,9 +13,11 @@ Requirements
 Usage
 ------------
 Clone this repository:
+
 	$ git clone git@github.com:janthomas89/vagrant-webdev.git
 
 Move your application in the www directory and start vagrant:
+
 	$ cd vagrant-webdev
 	$ vagrant up
 
@@ -24,8 +26,9 @@ There are two ways to access your project:
 *https://localhost:4443
 
 
-Components (installed by chef role "vagrant-webdev-box")
+Instlalled Software
 ------------
+The VMs provisioning is done by the chef role "vagrant-webdev-box". The following software is installed:
 * Apache2 (mod_php5, mod_ssl)
 * Memcached
 * Mysql
