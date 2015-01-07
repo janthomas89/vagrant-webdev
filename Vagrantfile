@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Configure synced folders
   config.vm.synced_folder "./www/web" , "/var/www/sites/" + vhost_name + "/web/", owner: "vagrant", group: "www-data", mount_options: ["dmode=770,fmode=660"]
   config.vm.synced_folder "./www/var" , "/var/www/sites/" + vhost_name + "/var/", owner: "vagrant", group: "www-data", mount_options: ["dmode=770,fmode=660"]
-  config.vm.synced_folder "./www/lib" , "/var/www/sites/" + vhost_name + "/lib/", owner: "vagrant", group: "www-data", mount_options: ["dmode=740,fmode=640"]
+  config.vm.synced_folder "./www/lib" , "/var/www/sites/" + vhost_name + "/lib/", owner: "vagrant", group: "www-data", mount_options: ["dmode=750,fmode=640"]
   config.vm.synced_folder "./www/tmp" , "/var/www/sites/" + vhost_name + "/tmp/", owner: "vagrant", group: "www-data", mount_options: ["dmode=770,fmode=660"]
 
 
