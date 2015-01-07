@@ -21,8 +21,3 @@ end
 # Install apc pecl
 package "libpcre3-dev"
 package "php-apc"
-
-php_pear "apc" do
-  action :install
-  directives(:shm_size => 128, :enable_cli => 1)
-end
