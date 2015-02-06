@@ -27,6 +27,13 @@ bash "symfony" do
   EOH
 end
 
+# Enable some functions in cli mode
+bash "enable functions" do
+  code <<-EOH
+  sudo sed -i '/disable_functions = /c  disable_functions = dl,posix_kill,posix_mkfifo,posix_setuid,shell_exec,system,leak,posix_setpgid,posix_setsid,show_source,virtual,proc_terminate,inject_code,define_syslog_variables,syslog,posix_uname' /etc/php5/cli/php.ini
+  EOH
+end
+
 # Install apc pecl
 package "libpcre3-dev"
 package "php-apc"
