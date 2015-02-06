@@ -30,10 +30,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
   # Configure synced folders
-  config.vm.synced_folder "./www/web" , "/var/www/sites/" + vhost_name + "/web/", owner: "vagrant", group: "www-data", mount_options: ["dmode=770,fmode=660"]
-  config.vm.synced_folder "./www/var" , "/var/www/sites/" + vhost_name + "/var/", owner: "vagrant", group: "www-data", mount_options: ["dmode=770,fmode=660"]
-  config.vm.synced_folder "./www/lib" , "/var/www/sites/" + vhost_name + "/lib/", owner: "vagrant", group: "www-data", mount_options: ["dmode=750,fmode=640"]
-  config.vm.synced_folder "./www/tmp" , "/var/www/sites/" + vhost_name + "/tmp/", owner: "vagrant", group: "www-data", mount_options: ["dmode=770,fmode=660"]
+  config.vm.synced_folder "./www/web" , "/var/www/sites/" + vhost_name + "/web/", type: "rsync", rsync__exclude: ".git/", owner: "vagrant", group: "www-data"
+  config.vm.synced_folder "./www/var" , "/var/www/sites/" + vhost_name + "/var/", type: "rsync", rsync__exclude: ".git/", owner: "vagrant", group: "www-data"
+  config.vm.synced_folder "./www/lib" , "/var/www/sites/" + vhost_name + "/lib/", type: "rsync", rsync__exclude: ".git/", owner: "vagrant", group: "www-data"
+  config.vm.synced_folder "./www/tmp" , "/var/www/sites/" + vhost_name + "/tmp/", type: "rsync", rsync__exclude: ".git/", owner: "vagrant", group: "www-data"
 
 
   # Configure Provisioning
