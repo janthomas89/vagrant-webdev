@@ -18,6 +18,15 @@ bash "composer" do
   EOH
 end
 
+# Install Symfony
+bash "symfony" do
+  code <<-EOH
+    curl -LsS http://symfony.com/installer > symfony.phar
+	sudo mv symfony.phar /usr/local/bin/symfony
+	chmod a+x /usr/local/bin/symfony
+  EOH
+end
+
 # Install apc pecl
 package "libpcre3-dev"
 package "php-apc"

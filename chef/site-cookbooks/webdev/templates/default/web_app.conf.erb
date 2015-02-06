@@ -88,4 +88,7 @@
   php_value xdebug.profiler_enable_trigger 1
   php_value xdebug.profiler_output_dir <%= @params[:docroot] %>/tmp
 
+  # VHOST-Variablen
+  SetEnv CONFIG_DEBUG 1 
+
 </VirtualHost>
