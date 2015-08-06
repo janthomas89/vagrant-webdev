@@ -14,7 +14,7 @@ Basic vagrant LAMP stack for my web development.
 ------------
 Clone this repository:
 
-	$ git clone git@github.com:janthomas89/vagrant-webdev.git
+	$ git clone --recursive git@github.com:janthomas89/vagrant-webdev.git .
 
 Move your application in the www directory and start vagrant:
 
